@@ -1,4 +1,4 @@
-![alt text](https://imgur.com/76VIMrF)
+![alt text](https://i.imgur.com/76VIMrF.png)
 
 ## Getting Started
 
