@@ -1,0 +1,34 @@
+{
+    "item": [
+      {
+        "title": "Vật phẩm 1",
+        "path": "/arm/1.png",
+        "price": "0.02"
+      },
+      {
+        "title": "Vật phẩm 2",
+        "path": "/arm/2.png",
+        "price": "0.03"
+      },
+      {
+        "title": "Vật phẩm 3",
+        "path": "/arm/3.png",
+        "price": "0.02"
+      },
+      {
+        "title": "Vật phẩm 4",
+        "path": "/arm/4.png",
+        "price": "0.05"
+      },
+      {
+        "title": "Vật phẩm 5",
+        "path": "/arm/5.png",
+        "price": "0.09"
+      },
+      {
+        "title": "Vật phẩm 6",
+        "path": "/arm/6.png",
+        "price": "0.1"
+      }
+    ]
+  }
