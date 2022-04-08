@@ -6,6 +6,7 @@ import Notiflix from 'notiflix';
 export default function Home() {
   const {Moralis, authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
   const [value, setValue] = useState("0.1");
+  var [Numberloop] = useState(10);
 
   const { fetch, error , isFetching } = useWeb3Transfer({
     amount: Moralis.Units.ETH(value),
