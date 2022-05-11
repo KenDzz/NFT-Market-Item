@@ -2,21 +2,19 @@ import Head from 'next/head'
 import { useRouter } from "next/router";
 import { useEffect, useState } from 'react';
 import { motion } from "framer-motion"
-import { color } from '@chakra-ui/react';
 
 export default function Layout({
   children,
   title = 'NFT BlockChain - Demo',
 }) {
-  const router = useRouter();
   const [ChangeRouter, setChangeRouter] = useState(false);
   const [CloudBlock, setCloudBlock] = useState("");
 
 function createCloud(n){
     var Cloud = [];
     for(var i = 1; i <= n; i++){
-      Cloud.push(<motion.div className={`cloud `+CloudBlock} style={{transition: `all ${getRndInteger(3,10)}s`}} animate={{ x: getRndInteger(-120,120)+"vw", y: getRndx()+"vh", scale: 3.5 }}/>);
-      Cloud.push(<motion.div className={`cloud `+CloudBlock} style={{transition: `all ${getRndInteger(3,10)}s`}} animate={{ x: getRndx()+"vw", y: getRndInteger(-120,120)+"vh", scale: 3.5 }}/>);
+      Cloud.push(<motion.div className={`cloud `+CloudBlock} style={{transition: `all ${getRndInteger(3,5)}s`}} animate={{ x: getRndInteger(-120,120)+"vw", y: getRndx()+"vh", scale: 3.5 }}/>);
+      Cloud.push(<motion.div className={`cloud `+CloudBlock} style={{transition: `all ${getRndInteger(3,5)}s`}} animate={{ x: getRndx()+"vw", y: getRndInteger(-120,120)+"vh", scale: 3.5 }}/>);
     }
     return Cloud;
 }
@@ -26,10 +24,11 @@ function getRndInteger(min, max) {
 }
 
 function getRndx(){
-  const x = ["-120", "120"];
+  const x = ["-120", "150"];
   const random = Math.floor(Math.random() * x.length);
   return x[random];
 }
+
 
 function changeCloud(){
   setChangeRouter(true)
@@ -37,31 +36,14 @@ function changeCloud(){
 }
 
 
-useEffect(() => {
-  router.events.on("routeChangeComplete", () => {
-    console.log("routeChangeComplete");
-  });
-  router.events.on("routeChangeStart", () => {
-    console.log("routeChangeStart");
-  });
-  return () => {
-    router.events.off("routeChangeComplete", () => {
-      console.log("stoped");
-    });
-  };
-}, [router.events]);
-
-
 const Link = ({ children, href }) => {
   changeCloud()
   const router = useRouter()
   return (
-    <a href="#" className={children} onClick={(e) => {
+    <a href="javascript:void(0)" className={children} onClick={(e) => {
         e.preventDefault()
-        setTimeout(() => {
-          setChangeRouter(false)
-          router.push(href)
-        }, 1000);
+        setChangeRouter(false)
+        router.push(href)
       }}
     ></a>
   )
@@ -92,6 +74,7 @@ const Link = ({ children, href }) => {
         {children}
 
       <footer>{'NFT BlockChain Demo - Developer By KenDzz '+new Date().toLocaleString()}</footer>
+      <motion.a href="javascript:void(0)" className='Scorpion' animate={{ x:"70vw" }} transition={{ duration: 10,repeat: Infinity, repeatType: "reverse" }}/>
     </div>
   )
 }
